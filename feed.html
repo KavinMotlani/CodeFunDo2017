@@ -14,27 +14,68 @@
 <link rel="stylesheet" href="./css/cards.css">
 <body>
 
-<div class="w3-container">
-  <h2>Card Example</h2>
+<div class="Newsfeed"></div>
 
-  <div class="w3-card-4" style="width:100% align:center">
-    <header class="w3-container w3-light-grey">
-      <h3>John Doe</h3>
-    </header>
-    <div class="w3-container">
-      <div style="float: left;">
-        <p> Electronics</p>
-      </div>
-      <div style="float: right;">
-        <p>50m</p>
-      </div>
-      <hr>
-      <img src="img_avatar3.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-      <p>CEO at Mighty Schools.</p><br>
-    </div>
-    <button class="w3-button w3-block w3-dark-grey">Show details</button>
-  </div>
-</div>
+<script type="text/javascript">
+  var json = {"items": [
+   {
+     "title": "sample 1",
+     "author": "author 1",
+     "description": "CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities."
+   },
+   {
+    "title": "sample 2",
+    "author": "author 2",
+    "description": "CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities."
+   }
+  ]};
+
+  var news = document.getElementsByClassName("Newsfeed")[0];
+  var items = json.items;
+  for(var i = 0; i < items.length; i++) {
+      var card = document.createElement("div");
+      card.setAttribute("class", "w3-card-4");
+      card.setAttribute("style","width:100% align:center");
+      var cardHeader = document.createElement("header");
+      cardHeader.setAttribute("class","w3-container w3-light-grey w3-center");
+      var cardHeaderHeading = document.createElement("h3");
+      cardHeaderHeading.innerHTML = items[i].author;
+      cardHeader.appendChild(cardHeaderHeading);
+      var cardBody = document.createElement("div");
+      cardBody.setAttribute("class", "w3-container");
+      var category = document.createElement("div");
+      var distance = document.createElement("div");
+      category.setAttribute("style", "float: left;");
+      distance.setAttribute("style", "float: right;");
+      category.innerHTML = items[i].author;
+      distance.innerHTML = "50m";
+      cardBody.appendChild(category);
+      cardBody.appendChild(distance);
+      var br1 = document.createElement("br");
+      var hr = document.createElement("hr");
+      cardBody.appendChild(br1);
+      cardBody.appendChild(hr);
+      var image = document.createElement("img");
+      image.setAttribute("src", "img_avatar3.png");
+      image.setAttribute("alt", "Avatar");
+      image.setAttribute("class", "w3-left w3-circle w3-margin-right");
+      image.setAttribute("style", "width:60px");
+      cardBody.appendChild(image);
+      var description = document.createElement("p");
+      description.setAttribute("align","center");
+      description.innerHTML = items[i].description;
+      var br2 = document.createElement("br");
+      description.appendChild(br2);
+      cardBody.appendChild(description);
+      var details = document.createElement("button");
+      details.setAttribute("class", "w3-button w3-block w3-dark-grey");
+      details.innerHTML = "Show details";
+      card.appendChild(cardHeader);
+      card.appendChild(cardBody);
+      card.appendChild(details);
+      news.appendChild(card);
+  }
+</script>
 
 </body>
 </html>

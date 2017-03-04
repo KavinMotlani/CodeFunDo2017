@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 	<link href="css/bootstrap.css" rel="stylesheet" />
 	<link href="css/bootstrap-theme.css" rel="stylesheet" />
 	<!-- Include jQuery -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
 
 	<!-- Include Date Range Picker -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -22,10 +22,34 @@
 	            autoclose: true,
 	        })
 	    })
+
 	</script>
 
 </head>
 <body>
+
+	<p id="location"></p>
+
+	<script>
+		var x = document.getElementById("location");
+
+		function getLocation() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(onGeoSuccess);
+		    } else { 
+		        x.innerHTML = "Geolocation is not supported by this browser.";
+		    }
+		}
+
+		function onGeoSuccess(position) {
+			console.log("jbvhb");
+	        document.getElementById("Latitude").value = position.coords.latitude;
+	        document.getElementById("Longitude").value = position.coords.longitude;
+	        document.getElementById("Timestamp").value = position.timestamp;
+
+	    }
+	</script>
+
 	<div class="container">
 		<form>
 			<h1>Coupon Details</h1>
@@ -76,6 +100,21 @@
 				</div>
 			</div>
 
+			<div id="divSample" class="hidden-xs hidden-sm hidden-md hidden-lg">Latitude:
+		        <input type="text" id="Latitude" name="Latitude" value="">
+		        <br>
+		        <br>Longitude:
+		        <input type="text" id="Longitude" name="Longitude" value="">
+		        <br>
+		        <br>Timestamp
+			    <input type="text" id="Timestamp" name="Timestamp" value="">
+			    <br>
+		    </div>
+
+		    <input type="button" value="Get Location" onclick="getLocation()" />
+
+			<br>
+
 			<h3>Enter Contact Informaton</h3>
 			<div class="form-group row">
 				<label for="name" class="col-sm-2">Name</label>
@@ -105,8 +144,10 @@
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button onclick="getLocation()" type="submit" class="btn btn-primary">Submit</button>
+
     	</form>
+
 	</div>
 </body>
 </html>

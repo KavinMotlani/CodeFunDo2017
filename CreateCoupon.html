@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
 	<link href="css/bootstrap.css" rel="stylesheet" />
 	<link href="css/bootstrap-theme.css" rel="stylesheet" />
 	<!-- Include jQuery -->
@@ -24,7 +23,12 @@
 	    })
 
 	</script>
+	<!-- for clock -->
+	<link href="css/bootstrap-timepicker.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
 
+    <!-- for sending coupon info -->
 </head>
 <body>
 
@@ -47,6 +51,7 @@
 	        document.getElementById("Timestamp").value = position.timestamp;
 
 	    }
+	    console.log("d");
 	</script>
 
 	<div class="container">
@@ -63,7 +68,7 @@
 			<div class="form-group row">
 	    		<label for="category" class="col-sm-2">Category</label>
 	    		<div class="col-sm-6">
-		    		<select class="form-control" id="sel1" id="category">
+		    		<select class="form-control" id="category">
 			    		<option>Food</option>
 						<option>Electronics</option>
 						<option>Travel</option>
@@ -86,9 +91,18 @@
 			</div>
 
 			<div class="form-group row">
+			    <label for="date" class="col-sm-2">Expiry Time</label>
+			   	<div class="col-sm-6">
+			   		<div class="input-group clockpicker">
+    					<input type="text" class="form-control" value="09:30" id="time">
+    				</div>
+    			</div>
+			</div>
+
+			<div class="form-group row">
 				<label for="link" class="col-sm-2">Link Of Coupon</label>
 				<div class="col-sm-6">
-					<input class="form-control col-lg-6" id="link" placeholder="Enter Coupon Link">
+					<input class="form-control" id="link" placeholder="Enter Coupon Link">
 				</div>
 			</div>
 
@@ -100,13 +114,13 @@
 			</div>
 
 			<div id="divSample" class="hidden-xs hidden-sm hidden-md hidden-lg">Latitude:
-		        <input type="text" id="Latitude" name="Latitude" value="">
+		        <input type="text" id="Latitude" name="Latitude" value="a">
 		        <br>
 		        <br>Longitude:
-		        <input type="text" id="Longitude" name="Longitude" value="">
+		        <input type="text" id="Longitude" name="Longitude" value="b">
 		        <br>
 		        <br>Timestamp
-			    <input type="text" id="Timestamp" name="Timestamp" value="">
+			    <input type="text" id="Timestamp" name="Timestamp" value="c">
 			    <br>
 		    </div>
 
@@ -130,7 +144,7 @@
 			</div>
 
 			<div class="form-group row">
-				<label for="eamil" class="col-sm-2">Email</label>
+				<label for="email" class="col-sm-2">Email</label>
 				<div class="col-sm-6">
 					<input class="form-control" id="email" placeholder="Email">
 				</div>
@@ -143,10 +157,44 @@
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary" onclick="sendInfo()">Submit</button>
 
     	</form>
-
+    	<br>
+    	<br>
+    	<br>
 	</div>
+	<script type="text/javascript">
+    	console.log("a");
+    	function sendInfo(){
+    		console.log("b");
+    		var info=new FormData();
+    		info.heading=document.getElementById("heading").value;
+    		info.category=document.getElementById("category").value;
+    		info.description=document.getElementById("description").value;
+    		info.date=document.getElementById("date").value;
+    		info.time=document.getElementById("time").value;
+    		info.link=document.getElementById("link").value;
+    		info.code=document.getElementById("code").value;
+    		info.Latitude=document.getElementById("Latitude").value;
+    		info.Longitude=document.getElementById("Longitude").value;
+    		info.Timestamp=document.getElementById("Timestamp").value;
+    		info.name=document.getElementById("name").value;
+    		info.number=document.getElementById("number").value;
+    		info.email=document.getElementById("email").value;
+    		info.address=document.getElementById("address").value;
+
+    		var url = "http://democodefundo.azurewebsites.net/api/v1/coupons";
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", url, true);
+			console.log("c");
+			//Send the proper header information along with the request
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			
+			console.log("f");
+			xhr.send(info);
+			console.log("g");
+    	}
+    </script>
 </body>
 </html>

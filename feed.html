@@ -1,49 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Example of Bootstrap 3 List Group Contextual Classes</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<style type="text/css">
-    .bs-example{
-        margin: 20px;
-    }
-</style>
 </head>
+<title>Newsfeed</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/cards.css">
 <body>
-<!-- <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Share my Coupon</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="nav nav-tabs">
-                <li><a href="./feed.html" class="btn btn-info">Home</a></li>
-                <li><a href="./CreateCoupon.html" class="btn btn-info"> Share Coupon &raquo;</a></li>
-                <li><a href="./feed.html" class="btn btn-info"> Find Buddy &raquo;</a></li>
-            </ul>   
-        </div>
-    </div>
-</nav> -->
 
-<div class="bs-example">
-    <ul class="list-group">
-        <li class="list-group-item list-group-item-success">200 OK: The server successfully processed the request.</li>
-        <li class="list-group-item list-group-item-info">100 Continue: The client should continue with its request.</li>
-        <li class="list-group-item list-group-item-warning">503 Service Unavailable: The server is temporarily unable to handle the request.</li>
-        <li class="list-group-item list-group-item-danger">400 Bad Request: The request cannot be fulfilled due to bad syntax.</li>
-    </ul>
-</div>
+<div class="Newsfeed"></div>
+
+<script type="text/javascript">
+  var json = {"items": [
+   {
+     "title": "sample 1",
+     "author": "author 1",
+     "description": "CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities."
+   },
+   {
+    "title": "sample 2",
+    "author": "author 2",
+    "description": "CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities."
+   }
+  ]};
+
+  var news = document.getElementsByClassName("Newsfeed")[0];
+  var items = json.items;
+  for(var i = 0; i < items.length; i++) {
+      var card = document.createElement("div");
+      card.setAttribute("class", "w3-card-4");
+      card.setAttribute("style","width:100% align:center");
+      var cardHeader = document.createElement("header");
+      cardHeader.setAttribute("class","w3-container w3-light-grey w3-center");
+      var cardHeaderHeading = document.createElement("h3");
+      cardHeaderHeading.innerHTML = items[i].author;
+      cardHeader.appendChild(cardHeaderHeading);
+      var cardBody = document.createElement("div");
+      cardBody.setAttribute("class", "w3-container");
+      var category = document.createElement("div");
+      var distance = document.createElement("div");
+      category.setAttribute("style", "float: left;");
+      distance.setAttribute("style", "float: right;");
+      category.innerHTML = items[i].author;
+      distance.innerHTML = "50m";
+      cardBody.appendChild(category);
+      cardBody.appendChild(distance);
+      var br1 = document.createElement("br");
+      var hr = document.createElement("hr");
+      cardBody.appendChild(br1);
+      cardBody.appendChild(hr);
+      var image = document.createElement("img");
+      image.setAttribute("src", "img_avatar3.png");
+      image.setAttribute("alt", "Avatar");
+      image.setAttribute("class", "w3-left w3-circle w3-margin-right");
+      image.setAttribute("style", "width:60px");
+      cardBody.appendChild(image);
+      var description = document.createElement("p");
+      description.setAttribute("align","center");
+      description.innerHTML = items[i].description;
+      var br2 = document.createElement("br");
+      description.appendChild(br2);
+      cardBody.appendChild(description);
+      var details = document.createElement("button");
+      details.setAttribute("class", "w3-button w3-block w3-dark-grey");
+      details.innerHTML = "Show details";
+      card.appendChild(cardHeader);
+      card.appendChild(cardBody);
+      card.appendChild(details);
+      news.appendChild(card);
+      var br3 = document.createElement("br");
+      news.appendChild(br3);
+  }
+</script>
+
 </body>
-</html>                                     
+</html>

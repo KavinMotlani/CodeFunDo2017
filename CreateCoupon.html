@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<link href="css/bootstrap-theme.css" rel="stylesheet" />
+	<!-- Include jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<!-- Include Date Range Picker -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+	<script>
+	    $(document).ready(function(){
+	        var date_input=$('input[name="date"]'); //our date input has the name "date"
+	        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+	        date_input.datepicker({
+	            format: 'mm/dd/yyyy',
+	            container: container,
+	            todayHighlight: true,
+	            autoclose: true,
+	        })
+	    })
+	</script>
+
+</head>
+<body>
+	<form>
+		<h1>Coupon Details</h1>
+
+		<div class="form-group">
+    		<label for="category">Category</label>
+    		<select class="form-control" id="sel1" id="category">
+    			<option>Food</option>
+				<option>Electronics</option>
+				<option>Travel</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+		    <label for="description">Description</label>
+		    <textarea class="form-control" id="description" rows="3" placeholder="Enter Description"></textarea>
+		</div>
+
+		<div class="form-group">
+		    <label for="date">Expiry Date</label>
+		   	<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/> 
+		</div>
+
+		<div class="form-group">
+			<label for="link">Link Of Coupon</label>
+			<input class="form-control" id="link" placeholder="Enter Coupon Link">
+		</div>
+
+		<div class="form-group">
+			<label for="code">Coupon Code</label>
+			<input class="form-control" id="code" placeholder="Enter Coupon Code">
+		</div>
+
+		<h3>Enter Contact Informaton</h3>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input class="form-control" id="name" placeholder="Name">
+		</div>			
+
+		<div class="form-group">
+			<label for="number">Contact No.</label>
+			<input class="form-control" id="number" placeholder="Contact No.">
+		</div>
+
+		<div class="form-group">
+			<label for="eamil">Email</label>
+			<input class="form-control" id="email" placeholder="Email">
+		</div>
+
+		<div class="form-group">
+		    <label for="address">Address</label>
+		    <textarea class="form-control" id="address" rows="3" placeholder="Enter Address"></textarea>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+</html>

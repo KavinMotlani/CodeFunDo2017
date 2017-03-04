@@ -26,60 +26,87 @@
 
 </head>
 <body>
-	<form>
-		<h1>Coupon Details</h1>
+	<div class="container">
+		<form>
+			<h1>Coupon Details</h1>
+			
+			<div class="form-group row">
+				<label for="heading" class="col-sm-2">Coupon Heading</label>
+				<div class="col-sm-6">
+					<input class="form-control col-lg-6" id="heading" placeholder="Enter Coupon Heading">
+				</div>
+			</div>
 
-		<div class="form-group">
-    		<label for="category">Category</label>
-    		<select class="form-control" id="sel1" id="category">
-    			<option>Food</option>
-				<option>Electronics</option>
-				<option>Travel</option>
-			</select>
-		</div>
+			<div class="form-group row">
+	    		<label for="category" class="col-sm-2">Category</label>
+	    		<div class="col-sm-6">
+		    		<select class="form-control" id="sel1" id="category">
+			    		<option>Food</option>
+						<option>Electronics</option>
+						<option>Travel</option>
+					</select>
+				</div>
+			</div>
 
-		<div class="form-group">
-		    <label for="description">Description</label>
-		    <textarea class="form-control" id="description" rows="3" placeholder="Enter Description"></textarea>
-		</div>
+			<div class="form-group row">
+			    <label for="description" class="col-sm-2">Description</label>
+			    <div class="col-sm-6">
+			    	<textarea class="form-control" id="description" rows="3" placeholder="Enter Description"></textarea>
+			    </div>
+			</div>
 
-		<div class="form-group">
-		    <label for="date">Expiry Date</label>
-		   	<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/> 
-		</div>
+			<div class="form-group row">
+			    <label for="date" class="col-sm-2">Expiry Date</label>
+			   	<div class="col-sm-6">
+			   		<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/> 
+				</div>
+			</div>
 
-		<div class="form-group">
-			<label for="link">Link Of Coupon</label>
-			<input class="form-control" id="link" placeholder="Enter Coupon Link">
-		</div>
+			<div class="form-group row">
+				<label for="link" class="col-sm-2">Link Of Coupon</label>
+				<div class="col-sm-6">
+					<input class="form-control col-lg-6" id="link" placeholder="Enter Coupon Link">
+				</div>
+			</div>
 
-		<div class="form-group">
-			<label for="code">Coupon Code</label>
-			<input class="form-control" id="code" placeholder="Enter Coupon Code">
-		</div>
+			<div class="form-group row">
+				<label for="code" class="col-sm-2">Coupon Code</label>
+				<div class="col-sm-6">
+					<input class="form-control" id="code" placeholder="Enter Coupon Code">
+				</div>
+			</div>
 
-		<h3>Enter Contact Informaton</h3>
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input class="form-control" id="name" placeholder="Name">
-		</div>			
+			<h3>Enter Contact Informaton</h3>
+			<div class="form-group row">
+				<label for="name" class="col-sm-2">Name</label>
+				<div class="col-sm-6">
+					<input class="form-control" id="name" placeholder="Name">
+				</div>
+			</div>			
 
-		<div class="form-group">
-			<label for="number">Contact No.</label>
-			<input class="form-control" id="number" placeholder="Contact No.">
-		</div>
+			<div class="form-group row">
+				<label for="number" class="col-sm-2">Contact No.</label>
+				<div class="col-sm-6">
+					<input class="form-control" id="number" placeholder="Contact No.">
+				</div>
+			</div>
 
-		<div class="form-group">
-			<label for="eamil">Email</label>
-			<input class="form-control" id="email" placeholder="Email">
-		</div>
+			<div class="form-group row">
+				<label for="eamil" class="col-sm-2">Email</label>
+				<div class="col-sm-6">
+					<input class="form-control" id="email" placeholder="Email">
+				</div>
+			</div>
 
-		<div class="form-group">
-		    <label for="address">Address</label>
-		    <textarea class="form-control" id="address" rows="3" placeholder="Enter Address"></textarea>
-		</div>
+			<div class="form-group row">
+			    <label for="address" class="col-sm-2">Address</label>
+			    <div class="col-sm-6">	
+			    	<textarea class="form-control" id="address" rows="3" placeholder="Enter Address"></textarea>
+				</div>
+			</div>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+			<button type="submit" class="btn btn-primary">Submit</button>
+    	</form>
+	</div>
 </body>
 </html>

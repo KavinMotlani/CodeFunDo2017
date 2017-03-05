@@ -23,16 +23,10 @@
 	    })
 	</script>
 	<!-- for clock -->
-<<<<<<< HEAD
 	<!-- <link href="css/bootstrap-timepicker.min.css" rel="stylesheet"> -->
     <!-- <script type="text/javascript" src="js/bootstrap-timepicker.js"></script> -->
     <!-- <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script> -->
     <script type="text/javascript" src="send_coupon_details.js"></script>
-=======
-	<link href="css/bootstrap-timepicker.min.css" rel="stylesheet">
-    <script type="text/javascript" src="js/bootstrap-timepicker.js"></script>
-    <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
->>>>>>> c206d45c3febc6cb5aba968afdd543239a4dad50
 
     <!-- for sending coupon info -->
 </head>
@@ -54,7 +48,7 @@
 	        document.getElementById("Longitude").value = position.coords.longitude;
 	        document.getElementById("Timestamp").value = position.timestamp;
 	    }
-	    console.log("d");
+	    //console.log("d");
 	</script>
 
 	<div class="container">
@@ -102,15 +96,6 @@
     				</div>
     			</div>
 			</div> -->
-
-			<div class="form-group row">
-			    <label for="date" class="col-sm-2">Expiry Time</label>
-			   	<div class="col-sm-6">
-			   		<div class="input-group clockpicker">
-    					<input type="text" class="form-control" value="09:30" id="time">
-    				</div>
-    			</div>
-			</div>
 
 			<div class="form-group row">
 				<label for="link" class="col-sm-2">Link Of Coupon</label>
@@ -171,48 +156,12 @@
 			</div>
 			<input type="button" value="Save Data" onclick="sendInfo()" />
 
-<<<<<<< HEAD
 			<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-=======
-			<button type="submit" class="btn btn-primary" onclick="sendInfo()">Submit</button>
->>>>>>> c206d45c3febc6cb5aba968afdd543239a4dad50
 
     	</form>
     	<br>
     	<br>
     	<br>
 	</div>
-	<script type="text/javascript">
-    	console.log("a");
-    	function sendInfo(){
-    		console.log("b");
-    		var info=new FormData();
-    		info.heading=document.getElementById("heading").value;
-    		info.category=document.getElementById("category").value;
-    		info.description=document.getElementById("description").value;
-    		info.date=document.getElementById("date").value;
-    		info.time=document.getElementById("time").value;
-    		info.link=document.getElementById("link").value;
-    		info.code=document.getElementById("code").value;
-    		info.Latitude=document.getElementById("Latitude").value;
-    		info.Longitude=document.getElementById("Longitude").value;
-    		info.Timestamp=document.getElementById("Timestamp").value;
-    		info.name=document.getElementById("name").value;
-    		info.number=document.getElementById("number").value;
-    		info.email=document.getElementById("email").value;
-    		info.address=document.getElementById("address").value;
-
-    		var url = "http://democodefundo.azurewebsites.net/api/v1/coupons";
-			var xhr = new XMLHttpRequest();
-			xhr.open("POST", url, true);
-			console.log("c");
-			//Send the proper header information along with the request
-			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			
-			console.log("f");
-			xhr.send(info);
-			console.log("g");
-    	}
-    </script>
 </body>
 </html>

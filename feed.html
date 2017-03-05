@@ -24,6 +24,11 @@
      "description": "CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities."
    },
    {
+     "title": "sample 1.5",
+     "author": "author 1.5",
+     "description": "CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities."
+   },
+   {
     "title": "sample 2",
     "author": "author 2",
     "description": "CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities."
@@ -34,6 +39,7 @@
   var items = json.items;
   for(var i = 0; i < items.length; i++) {
       var card = document.createElement("div");
+      card.setAttribute("id", "card"+i);
       card.setAttribute("class", "w3-card-4");
       card.setAttribute("style","width:100% align:center");
       var cardHeader = document.createElement("header");
@@ -67,16 +73,21 @@
       var br2 = document.createElement("br");
       description.appendChild(br2);
       cardBody.appendChild(description);
-      var details = document.createElement("button");
-      details.setAttribute("class", "w3-button w3-block w3-dark-grey");
-      details.innerHTML = "Show details";
+      var showDetailsButton = document.createElement("button");
+      showDetailsButton.setAttribute("class", "w3-button w3-block w3-dark-grey");
+      showDetailsButton.innerHTML = "Show details";
       card.appendChild(cardHeader);
       card.appendChild(cardBody);
-      card.appendChild(details);
+      card.appendChild(showDetailsButton);
       news.appendChild(card);
       var br3 = document.createElement("br");
       news.appendChild(br3);
   }
+
+  function showDetails(card){
+
+  }
+
 </script>
 
 </body>

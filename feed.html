@@ -8,14 +8,24 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="./load_data.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+        jQuery('#hideshow').on('click', function(event) {        
+             jQuery('#content').toggle('hide');
+        });
+    });
+</script>
 </head>
 <title>Newsfeed</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/cards.css">
 <body>
-
-<div class="w3-container">
-  <h2>Card Example</h2>
+<div>
+  <div class="w3-container">
+    <h2>Card Example</h2>
 
   <div class="w3-card-4" style="width:100% align:center">
     <header class="w3-container w3-light-grey">
@@ -32,8 +42,22 @@
       <img src="img_avatar3.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
       <p>CEO at Mighty Schools.</p><br>
     </div>
-    <button class="w3-button w3-block w3-dark-grey">Show details</button>
+    <button class="w3-button w3-block w3-dark-grey " id='hideshow'>Show details</button>
+    <div class="container" id="content">
+      <div class="row">
+        <p><span class="glyphicon glyphicon-user"></span> Shubham</p>    
+      </div>
+      <div class="row">
+        <p>
+        <span class="glyphicon">&#x2709;</span> 
+      <a href="mailto:someone@example.com" target="_top">Send Mail</a>
+      </p>
+      </div>
+      <div class="row"><span class="glyphicon glyphicon-earphone"></span><a href="tel:+1-555-555-1212"> 555-555-1212</a></div>
+    </div>
   </div>
+</div>
+
 </div>
 
 </body>

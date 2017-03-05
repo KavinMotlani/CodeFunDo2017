@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
 	<link href="css/bootstrap.css" rel="stylesheet" />
 	<link href="css/bootstrap-theme.css" rel="stylesheet" />
 	<!-- Include jQuery -->
@@ -22,9 +21,14 @@
 	            autoclose: true,
 	        })
 	    })
-
 	</script>
+	<!-- for clock -->
+	<!-- <link href="css/bootstrap-timepicker.min.css" rel="stylesheet"> -->
+    <!-- <script type="text/javascript" src="js/bootstrap-timepicker.js"></script> -->
+    <!-- <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script> -->
+    <script type="text/javascript" src="send_coupon_details.js"></script>
 
+    <!-- for sending coupon info -->
 </head>
 <body>
 
@@ -32,7 +36,6 @@
 
 	<script>
 		var x = document.getElementById("location");
-
 		function getLocation() {
 		    if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition(onGeoSuccess);
@@ -40,13 +43,12 @@
 		        x.innerHTML = "Geolocation is not supported by this browser.";
 		    }
 		}
-
 		function onGeoSuccess(position) {
 	        document.getElementById("Latitude").value = position.coords.latitude;
 	        document.getElementById("Longitude").value = position.coords.longitude;
 	        document.getElementById("Timestamp").value = position.timestamp;
-
 	    }
+	    console.log("d");
 	</script>
 
 	<div class="container">
@@ -63,7 +65,7 @@
 			<div class="form-group row">
 	    		<label for="category" class="col-sm-2">Category</label>
 	    		<div class="col-sm-6">
-		    		<select class="form-control" id="sel1" id="category">
+		    		<select class="form-control" id="category">
 			    		<option>Food</option>
 						<option>Electronics</option>
 						<option>Travel</option>
@@ -86,10 +88,19 @@
 				</div>
 			</div>
 
+			<!-- <div class="form-group row">
+			    <label for="date" class="col-sm-2">Expiry Time</label>
+			   	<div class="col-sm-6">
+			   		<div class="input-group clockpicker">
+    					<input type="text" class="form-control" value="09:30" id="time">
+    				</div>
+    			</div>
+			</div> -->
+
 			<div class="form-group row">
 				<label for="link" class="col-sm-2">Link Of Coupon</label>
 				<div class="col-sm-6">
-					<input class="form-control col-lg-6" id="link" placeholder="Enter Coupon Link">
+					<input class="form-control" id="link" placeholder="Enter Coupon Link">
 				</div>
 			</div>
 
@@ -101,13 +112,13 @@
 			</div>
 
 			<div id="divSample" class="hidden-xs hidden-sm hidden-md hidden-lg">Latitude:
-		        <input type="text" id="Latitude" name="Latitude" value="">
+		        <input type="text" id="Latitude" name="Latitude" value="a">
 		        <br>
 		        <br>Longitude:
-		        <input type="text" id="Longitude" name="Longitude" value="">
+		        <input type="text" id="Longitude" name="Longitude" value="b">
 		        <br>
 		        <br>Timestamp
-			    <input type="text" id="Timestamp" name="Timestamp" value="">
+			    <input type="text" id="Timestamp" name="Timestamp" value="c">
 			    <br>
 		    </div>
 
@@ -131,7 +142,7 @@
 			</div>
 
 			<div class="form-group row">
-				<label for="eamil" class="col-sm-2">Email</label>
+				<label for="email" class="col-sm-2">Email</label>
 				<div class="col-sm-6">
 					<input class="form-control" id="email" placeholder="Email">
 				</div>
@@ -143,11 +154,14 @@
 			    	<textarea class="form-control" id="address" rows="3" placeholder="Enter Address"></textarea>
 				</div>
 			</div>
+			<input type="button" value="Save Data" onclick="sendInfo()" />
 
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 
     	</form>
-
+    	<br>
+    	<br>
+    	<br>
 	</div>
 </body>
 </html>
